@@ -1,22 +1,21 @@
 <script src="./js/cityFilter.js"></script>
+<script src="./js/userAdd.js"></script>
 
 <h1 class="text-center">PHP Test Application</h1>
 
 <hr />
 
+<div class="alert alert-danger <? if(isset($_GET['errors'])) { echo ""; } else { echo "hidden"; } ?>" id="errors">
 <?php
-if (isset($_GET['errors'])) {
-	?><div class="alert alert-danger"><?php
     $errors = $_GET['errors'];
     echo "<h4>Errors:</h4>";
-    foreach ($errors as $error) {
-        echo "<p>" . htmlspecialchars($error) . "</p>";
+    foreach (explode(',', $errors) as $error) {
+        echo "<p name='error'>" . htmlspecialchars($error) . "</p>";
     }
-	?></div><?php
-}
 ?>
+</div>
 
-<form method="post" action="create.php" class="form-horizontal well">
+<form method="post" action="create.php" class="form-horizontal well" id="userAddForm">
 	<div class="form-group">
 		<label for="name" class="control-label col-sm-2">Name:</label>
 		<div class="col-sm-10">

@@ -25,22 +25,28 @@ class User extends BaseModel{
 	}
 
 	protected function validate() {
+		$errors = [];
+
 		$name = $this->getField('name');
 		if (empty($name)) {
-			return ValidationResult::Invalid(["Name is required"]);
+			$errors[] = "Name is required";
 		}
 
 		$email = $this->getField('email');
 		if (empty($email)) {
-			return ValidationResult::Invalid(["Email is required"]);
+			$errors[] = "Email is required";
 		}
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			return ValidationResult::Invalid(["Email is not valid"]);
+			$errors[] = "Email is not valid";
 		}
 
 		$city = $this->getField('city');
 		if (empty($city)) {
-			return ValidationResult::Invalid(["City is required"]);
+			$errors[] = "City is required";
+		}
+
+		if (!empty($errors)) {
+			return ValidationResult::Invalid($errors);
 		}
 
 		return ValidationResult::Valid();

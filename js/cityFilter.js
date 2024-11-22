@@ -1,4 +1,4 @@
-document.ready = () => {
+$(() => {
     const $form = $('#cityFilterForm');
     const $table = $('#usersTable');
     const $clearButton = $form.find('button[name="clear"]');
@@ -7,7 +7,7 @@ document.ready = () => {
     const clearFilter = () => {
         $form.find('input[name="city"]').val('');
         showAllCities();
-        window.history.pushState({}, '', window.location.pathname);
+        queryManagement.removeParameter('city');
     };
 
     const filterCitiesBy = (city) => {
@@ -44,8 +44,8 @@ document.ready = () => {
         }
 
         filterCitiesBy(city);
-        window.history.pushState({}, '', `?city=${city}`);
+        queryManagement.addParameter('city', city);
     });
 
     $clearButton.on('click', clearFilter);
-}
+});

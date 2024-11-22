@@ -14,10 +14,13 @@ try {
 	));
 } catch(ValidationException $ex) {
 	$errors = $ex->getErrors();
-	$queryString = http_build_query(['errors' => implode(',', $errors)]);
-	header('Location: index.php?' . $queryString);
+	$queryString = http_build_query(['errors' => $errors]);
+
+	header('Content-Type: application/json');
+	echo json_encode(['success' => false, 'errors' => $errors]);
 	exit;
 }
 
 // Redirect back to index
-header('Location: index.php');
+header('Content-Type: application/json');
+echo json_encode(['success' => true]);
