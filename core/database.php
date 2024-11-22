@@ -15,7 +15,7 @@ class Database {
 	 */
 	public function connect($config){
 		$this->config = $config;	
-		$this->mysqli = new mysqli($this->config['address'], $this->config['username'], $this->config['password'], $this->config['database']);
+		$this->mysqli = new mysqli($this->config['address'], $this->config['username'], $this->config['password'], $this->config['database'], $this->config['port']);
 		
 		if ($this->mysqli->connect_errno) {
 			echo "Failed to connect to MySQL: " . $this->mysqli->connect_error;
