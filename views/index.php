@@ -4,37 +4,6 @@
 
 <hr />
 
-<form method="get" class="form-inline text-center" style="margin-bottom: 10px" id="cityFilterForm">
-	<div class="form-group">
-		<label for="cityFilter" class="sr-only">City:</label>
-		<input type="text" name="city" name="cityFilter" class="form-control" placeholder="Enter city" value="<?=$_GET['city']?>">
-	</div>
-	<button type="submit" class="btn btn-primary">Filter</button>
-	<!-- Hide in the rare case javascript isn't available -->
-	<button class="btn btn-secondary hidden" name="clear">Clear</button>
-</form>
-
-<table class="table table-striped table-bordered table-hover" id="usersTable">
-	<thead>
-		<tr class="info">
-			<th class="text-center">Name</th>
-			<th class="text-center">E-mail</th>
-			<th class="text-center">City</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?foreach($users as $user){?>
-		<tr>
-			<td name="name"><?=$user->getName()?></td>
-			<td name="email"><?=$user->getEmail()?></td>
-			<td name="city"><?=$user->getCity()?></td>
-		</tr>
-		<?}?>
-	</tbody>
-</table>				
-
-<hr />
-
 <?php
 if (isset($_GET['errors'])) {
 	?><div class="alert alert-danger"><?php
@@ -75,3 +44,34 @@ if (isset($_GET['errors'])) {
 		</div>
 	</div>
 </form>
+
+<hr />
+
+<form method="get" class="form-inline text-center" style="margin-bottom: 10px" id="cityFilterForm">
+	<div class="form-group">
+		<label for="cityFilter" class="sr-only">City:</label>
+		<input type="text" name="city" name="cityFilter" class="form-control" placeholder="Enter city" value="<?=$_GET['city']?>">
+	</div>
+	<button type="submit" class="btn btn-primary">Filter</button>
+	<!-- Hide in the rare case javascript isn't available -->
+	<button class="btn btn-secondary hidden" name="clear">Clear</button>
+</form>
+
+<table class="table table-striped table-bordered table-hover" id="usersTable">
+	<thead>
+		<tr class="info">
+			<th class="text-center">Name</th>
+			<th class="text-center">E-mail</th>
+			<th class="text-center">City</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?foreach($users as $user){?>
+		<tr>
+			<td name="name"><?=$user->getName()?></td>
+			<td name="email"><?=$user->getEmail()?></td>
+			<td name="city"><?=$user->getCity()?></td>
+		</tr>
+		<?}?>
+	</tbody>
+</table>				
