@@ -23,6 +23,10 @@ class User extends BaseModel{
 	public function getCity() {
 		return $this->getField('city');
 	}
+	
+	public function getPhoneNumber() {
+		return $this->getField('phoneNumber');
+	}
 
 	protected function validate() {
 		$errors = [];
@@ -43,6 +47,11 @@ class User extends BaseModel{
 		$city = $this->getField('city');
 		if (empty($city)) {
 			$errors[] = "City is required";
+		}
+
+		$phoneNumber = $this->getField('phoneNumber');
+		if (!empty($phoneNumber) && !preg_match('/^\+[0-9]{10,15}$/', $phoneNumber)) {
+			$errors[] = "Phone number is not valid. Please provide in the format +447877468899";
 		}
 
 		if (!empty($errors)) {

@@ -38,6 +38,13 @@
 	</div>
 	
 	<div class="form-group">
+		<label for="phoneNumber" class="control-label col-sm-2">Phone Number:</label>
+		<div class="col-sm-10">
+			<input name="phoneNumber" input="text" id="phoneNumber" class="form-control"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button class="btn btn-default">Create new row</button>
 		</div>
@@ -62,6 +69,7 @@
 			<th class="text-center">Name</th>
 			<th class="text-center">E-mail</th>
 			<th class="text-center">City</th>
+			<th class="text-center">Phone Number</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -70,6 +78,7 @@
 			<td name="name"><?=$user->getName()?></td>
 			<td name="email"><?=$user->getEmail()?></td>
 			<td name="city"><?=$user->getCity()?></td>
+			<td name="phoneNumber"><?=$user->getPhoneNumber()!==null?'+':''?><?=$user->getPhoneNumber()?></td>
 		</tr>
 		<?}?>
 	</tbody>

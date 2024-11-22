@@ -10,7 +10,8 @@ try {
 	$user->insert(array(
 		'name' => $_POST['name'],
 		'email' => $_POST['email'],
-		'city' => $_POST['city']
+		'city' => $_POST['city'],
+		'phoneNumber' => $_POST['phoneNumber']
 	));
 } catch(ValidationException $ex) {
 	$errors = $ex->getErrors();
