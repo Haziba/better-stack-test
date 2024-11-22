@@ -2,6 +2,8 @@
 
 // Load BaseModel and all models from models directory
 require dirname(__FILE__).'/base_model.php';
+require dirname(__FILE__).'/validation_result.php';
+require dirname(__FILE__).'/validation_exception.php';
 foreach (glob(dirname(__FILE__).'/../models/*.php') as $filename){
 	require $filename;
 }

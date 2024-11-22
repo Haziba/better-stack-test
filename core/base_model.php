@@ -284,6 +284,15 @@ class BaseModel {
 	public function insert($data = array()){
 		// Overwrite current field values with given data
 		$this->setFields($data);		
+
+		if(method_exists($this, 'validate')) {
+			$validationResult = $this->validate();
+
+			if($validationResult->isValid() === false) {
+				throw new ValidationException($validationResult->getErrors());
+			}
+		}
+
 		$insertStrings = self::buildInsertData($this->fields);
 		$query = "INSERT INTO `".static::tableName."` (".$insertStrings['columns'].", `created_at`) VALUES (".$insertStrings['values'].", NOW())";
 		$this->db->query($query);

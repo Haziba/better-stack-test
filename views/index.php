@@ -21,6 +21,18 @@
 
 <hr />
 
+<?php
+if (isset($_GET['errors'])) {
+	?><div class="alert alert-danger"><?php
+    $errors = $_GET['errors'];
+    echo "<h4>Errors:</h4>";
+    foreach ($errors as $error) {
+        echo "<p>" . htmlspecialchars($error) . "</p>";
+    }
+	?></div><?php
+}
+?>
+
 <form method="post" action="create.php" class="form-horizontal well">
 	<div class="form-group">
 		<label for="name" class="control-label col-sm-2">Name:</label>
