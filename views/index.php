@@ -1,11 +1,11 @@
-<h1>PHP Test Application</h1>
+<h1 class="text-center">PHP Test Application</h1>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered table-hover">
 	<thead>
-		<tr>
-			<th>Name</th>
-			<th>E-mail</th>
-			<th>City</th>
+		<tr class="info">
+			<th class="text-center">Name</th>
+			<th class="text-center">E-mail</th>
+			<th class="text-center">City</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,7 +19,9 @@
 	</tbody>
 </table>				
 
-<form method="post" action="create.php" class="form-horizontal">
+<hr />
+
+<form method="post" action="create.php" class="form-horizontal well">
 	<div class="form-group">
 		<label for="name" class="control-label col-sm-2">Name:</label>
 		<div class="col-sm-10">
